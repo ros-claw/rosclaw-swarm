@@ -31,6 +31,9 @@ class SwarmRuntimeManager:
         self.agent_registry = AgentRegistry()
         self.capability_registry = CapabilityRegistry()
         self.planner = TaskPlanner()
+        self.planner.register_rule("lift", TaskPlanner.cooperative_carry)
+        self.planner.register_rule("carry", TaskPlanner.cooperative_carry)
+        self.planner.register_rule("together", TaskPlanner.cooperative_carry)
         self.scheduler = SwarmScheduler(self.agent_registry, self.capability_registry)
         self._sessions: Dict[str, SwarmContext] = {}
         self._event_handlers: Dict[str, List[Callable]] = {}
