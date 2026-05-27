@@ -65,3 +65,11 @@ jobs:
 
       - name: Display demo output
         run: cat demo_output.txt
+
+      - name: Write demo output to job summary
+        run: |
+          echo "## ROSClaw-Swarm Pure-Software Demo Output" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat demo_output.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
