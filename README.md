@@ -1,6 +1,6 @@
 # ROSClaw-Swarm
 
-![CI](https://github.com/ros-claw/rosclaw-swarm/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/ros-claw/rosclaw-swarm/actions/workflows/ci.yml/badge.svg)](https://github.com/ros-claw/rosclaw-swarm/actions)
 **The Swarm Coordination Runtime for Physical Intelligence**
 
 > Collaboration Grounding — stripping away high-latency LLM text chatter and
