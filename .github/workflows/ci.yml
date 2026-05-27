@@ -55,4 +55,13 @@ jobs:
           pip install -e ".[dev]"
 
       - name: Run pure-software demo
-        run: python examples/demo_simulation.py
+        run: python examples/demo_simulation.py > demo_output.txt 2>&1
+
+      - name: Upload demo output artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-output
+          path: demo_output.txt
+
+      - name: Display demo output
+        run: cat demo_output.txt
