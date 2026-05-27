@@ -134,3 +134,67 @@ Practice  →  Memory  →  SeekDB
 ## License
 
 MIT
+
+---
+
+## MCP Server
+
+ROSClaw-Swarm exposes a **FastMCP** server so Claude (or any LLM) can orchestrate physical swarm tasks directly.
+
+### Install with MCP support
+
+```bash
+pip install -e ".[mcp]"
+```
+
+### Start the server
+
+**Stdio mode** (for Claude Desktop):
+```bash
+rosclaw-swarm-server
+# or
+python -m rosclaw_swarm.server
+```
+
+**SSE mode** (for remote clients):
+```bash
+rosclaw-swarm-server --transport sse --port 8000
+```
+
+### Pre-load agents from JSON
+
+```bash
+rosclaw-swarm-server --agents agents_example.json
+```
+
+Or via environment variable:
+```bash
+export ROSCLAW_SWARM_AGENTS_JSON='[{"agent_id":"g1","hardware_type":"G1",...}]'
+rosclaw-swarm-server
+```
+
+### MCP Tools exposed
+
+| Tool | Purpose |
+|------|---------|
+| `create_swarm_session` | Create a swarm session from a high-level goal |
+| `find_capable_agents` | Discover agents by capability |
+| `establish_swarm_handoff` | Set up physical handoff between two agents |
+| `get_session_status` | Query current session status |
+
+### Claude Desktop configuration
+
+Add to your Claude Desktop config (`~/.config/claude/claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "rosclaw-swarm": {
+      "command": "rosclaw-swarm-server",
+      "env": {
+        "PYTHONPATH": "/path/to/rosclaw_swarm"
+      }
+    }
+  }
+}
+```
