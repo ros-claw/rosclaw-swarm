@@ -31,6 +31,12 @@ from rosclaw_swarm.llm_planner import (
 )
 from rosclaw_swarm.visualizer import to_mermaid, to_dot, to_ascii
 from rosclaw_swarm.simulation import SwarmSimulator, SimulatedAgent
+from rosclaw_swarm.discovery import AgentDiscovery, DiscoveryBeacon
+from rosclaw_swarm.role_assigner import RoleAssigner, SwarmRole
+from rosclaw_swarm.tf_sync import TFSync
+from rosclaw_swarm.safety_zone import SafetyZone, SafetyZoneManager
+from rosclaw_swarm.dds_group import DDSGroupManager
+from rosclaw_swarm.force_state import ForceState, ForceStateShare
 
 __all__ = [
     "AgentCapabilities",
@@ -55,4 +61,14 @@ __all__ = [
     "to_ascii",
     "SwarmSimulator",
     "SimulatedAgent",
+    "AgentDiscovery",
+    "DiscoveryBeacon",
+    "RoleAssigner",
+    "SwarmRole",
+    "TFSync",
+    "SafetyZone",
+    "SafetyZoneManager",
+    "DDSGroupManager",
+    "ForceState",
+    "ForceStateShare",
 ]

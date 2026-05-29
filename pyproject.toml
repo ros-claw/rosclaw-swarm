@@ -19,6 +19,7 @@ ros2 = ["rclpy>=3.3"]
 
 [project.scripts]
 rosclaw-swarm-server = "rosclaw_swarm.server:main"
+rosclaw-swarm = "rosclaw_swarm.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
